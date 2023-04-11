@@ -13,6 +13,7 @@ const userController = {
             res.status(200).json(saveUser);
 
         }catch(err){
+          console.log(err);
             res.status(500).json(err);
         }
 
@@ -51,7 +52,7 @@ const userController = {
   //DELETE BOOK
   deleteUser: async (req, res) => {
     try {
-      await Author.updateMany(
+      await User.updateMany(
         { users: req.params.id },
         { $pull: { users: req.params.id } }
       );
