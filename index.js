@@ -6,8 +6,10 @@ const morgan =require("morgan");
 const dotenv =require("dotenv");
 const helmet = require("helmet");
 const app =express();
+
 const userRoute=require("./routes/user");
 const planeRoute=require("./routes/plane");
+const hotelRoute=require("./routes/hotel");
 
 dotenv.config();
 //connect database 
@@ -29,6 +31,7 @@ app.use(morgan("common"));
 //routes
 app.use("/v1/user",userRoute);
 app.use("/v1/plane",planeRoute);
+app.use("/v1/hotel",hotelRoute);
 
 
 app.listen(8000,()=>{
